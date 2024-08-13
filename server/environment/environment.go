@@ -140,4 +140,5 @@ type Env interface {
 	GetHitTrackerFactory() interfaces.HitTrackerFactory
 	GetHitTrackerServiceServer() hitpb.HitTrackerServiceServer
 	GetExperimentFlagProvider() interfaces.ExperimentFlagProvider
+	GetContainerRegistry() interfaces.ContainerRegistry
 }

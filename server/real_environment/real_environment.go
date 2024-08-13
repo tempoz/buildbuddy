@@ -139,6 +139,7 @@ type RealEnv struct {
 	hitTrackerFactory                interfaces.HitTrackerFactory
 	hitTrackerServiceServer          hitpb.HitTrackerServiceServer
 	experimentFlagProvider           interfaces.ExperimentFlagProvider
+	containerRegistry                interfaces.ContainerRegistry
 }
 
 // NewRealEnv returns an environment for use in servers.
@@ -853,4 +854,11 @@ func (r *RealEnv) GetExperimentFlagProvider() interfaces.ExperimentFlagProvider 
 }
 func (r *RealEnv) SetExperimentFlagProvider(experimentFlagProvider interfaces.ExperimentFlagProvider) {
 	r.experimentFlagProvider = experimentFlagProvider
+}
+
+func (r *RealEnv) GetContainerRegistry() interfaces.ContainerRegistry {
+	return r.containerRegistry
+}
+func (r *RealEnv) SetContainerRegistry(value interfaces.ContainerRegistry) {
+	r.containerRegistry = value
 }

@@ -1783,7 +1783,6 @@ func (s *BuildBuddyServer) RepoStatus(ctx context.Context, req *csinpb.RepoStatu
 	return nil, status.UnimplementedError("Not implemented")
 }
 
-
 func (s *BuildBuddyServer) GetCatalog(ctx context.Context, req *regpb.GetCatalogRequest) (*regpb.GetCatalogResponse, error) {
 	ctx, err := prefix.AttachUserPrefixToContext(ctx, s.env.GetAuthenticator())
 	if err != nil {

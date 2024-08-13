@@ -11,7 +11,6 @@ go_library(
         "//proto:buildbuddy_service_go_proto",
         "//proto:hit_tracker_go_proto",
         "//proto:publish_build_event_go_proto",
-        "//proto:registry_go_proto",
         "//proto:remote_asset_go_proto",
         "//proto:remote_execution_go_proto",
         "//proto:scheduler_go_proto",

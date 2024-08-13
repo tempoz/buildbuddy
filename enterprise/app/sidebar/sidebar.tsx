@@ -1,9 +1,9 @@
 import {
-  Factory,
   BarChart2,
   BookOpen,
   Cloud,
   Code,
+  Factory,
   Fingerprint,
   Gauge,
   GitBranch,
@@ -225,12 +225,12 @@ export default class SidebarComponent extends React.Component<Props, State> {
               <span className="sidebar-item-text">Code</span>
             </SidebarLink>
           )}
-          {(
+          {
             <SidebarLink selected={this.isRegistrySelected()} href={Path.registryPath} title="Registry">
               <Factory className="icon" />
               <span className="sidebar-item-text">Registry</span>
             </SidebarLink>
-          )}
+          }
           {capabilities.config.codeReviewEnabled && (
             <SidebarLink selected={this.isReviewsSelected()} href={Path.reviewsPath} title="Review">
               <MessageCircle className="icon" />

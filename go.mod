@@ -55,6 +55,7 @@ require (
 	github.com/coreos/go-oidc/v3 v3.10.0
 	github.com/creack/pty v1.1.18
 	github.com/crewjam/saml v0.4.14
+	github.com/distribution/distribution/v3 v3.0.0-beta.1
 	github.com/distribution/reference v0.6.0
 	github.com/docker/docker v28.3.3+incompatible
 	github.com/docker/go-units v0.5.0
@@ -259,6 +260,7 @@ require (
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/docker/go-connections v0.5.0 // indirect
 	github.com/docker/go-events v0.0.0-20190806004212-e31b211e4f1c // indirect
+	github.com/docker/go-metrics v0.0.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/envoyproxy/go-control-plane/envoy v1.32.4 // indirect
@@ -307,6 +309,7 @@ require (
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.2 // indirect
+	github.com/gorilla/handlers v1.5.2 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.1.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
@@ -316,6 +319,7 @@ require (
 	github.com/hashicorp/go-sockaddr v1.0.6 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
 	github.com/hashicorp/go-version v1.7.0 // indirect
+	github.com/hashicorp/golang-lru/arc/v2 v2.0.5 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
@@ -376,6 +380,9 @@ require (
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20221212215047-62379fc7944b // indirect
 	github.com/prometheus/procfs v0.17.0 // indirect
+	github.com/redis/go-redis/extra/rediscmd/v9 v9.0.5 // indirect
+	github.com/redis/go-redis/extra/redisotel/v9 v9.0.5 // indirect
+	github.com/redis/go-redis/v9 v9.1.0 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	github.com/rs/xid v1.6.0 // indirect
 	github.com/russellhaering/goxmldsig v1.4.0 // indirect

@@ -687,8 +687,20 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
     go_repository(
         name = "com_github_bshuster_repo_logrus_logstash_hook",
         importpath = "github.com/bshuster-repo/logrus-logstash-hook",
-        sum = "h1:pgAtgj+A31JBVtEHu2uHuEx0n+2ukqUJnS2vVe5pQNA=",
-        version = "v0.4.1",
+        sum = "h1:e+C0SB5R1pu//O4MQ3f9cFuPGoOVeF2fE4Og9otCc70=",
+        version = "v1.0.0",
+    )
+    go_repository(
+        name = "com_github_bsm_ginkgo_v2",
+        importpath = "github.com/bsm/ginkgo/v2",
+        sum = "h1:rtVBYPs3+TC5iLUVOis1B9tjLTup7Cj5IfzosKtvTJ0=",
+        version = "v2.9.5",
+    )
+    go_repository(
+        name = "com_github_bsm_gomega",
+        importpath = "github.com/bsm/gomega",
+        sum = "h1:LhQm+AFcgV2M0WyKroMASzAzCAJVpAxQXv4SaI9a69Y=",
+        version = "v1.26.0",
     )
     go_repository(
         name = "com_github_bufbuild_protocompile",
@@ -1386,6 +1398,12 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         importpath = "github.com/diegoholiveira/jsonlogic/v3",
         sum = "h1:92HSmB9bwM/o0ZvrCpcvTP2EsPXSkKtAniIr2W/dcIM=",
         version = "v3.7.4",
+    )
+    go_repository(
+        name = "com_github_distribution_distribution_v3",
+        importpath = "github.com/distribution/distribution/v3",
+        sum = "h1:X+ELTxPuZ1Xe5MsD3kp2wfGUhc8I+MPfRis8dZ818Ic=",
+        version = "v3.0.0-beta.1",
     )
     go_repository(
         name = "com_github_distribution_reference",
@@ -2484,8 +2502,8 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
     go_repository(
         name = "com_github_gorilla_handlers",
         importpath = "github.com/gorilla/handlers",
-        sum = "h1:0QniY0USkHQ1RGCLfKxeNHK9bkDHGRYGNDFBCS+YARg=",
-        version = "v1.4.2",
+        sum = "h1:cLTUSsNkgcwhgRqvCNmdbRWG0A3N4F+M2nWKdScwyEE=",
+        version = "v1.5.2",
     )
     go_repository(
         name = "com_github_gorilla_mux",
@@ -2690,6 +2708,12 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         importpath = "github.com/hashicorp/golang-lru",
         sum = "h1:dV3g9Z/unq5DpblPpw+Oqcv4dU/1omnb4Ok8iPY6p1c=",
         version = "v1.0.2",
+    )
+    go_repository(
+        name = "com_github_hashicorp_golang_lru_arc_v2",
+        importpath = "github.com/hashicorp/golang-lru/arc/v2",
+        sum = "h1:l2zaLDubNhW4XO3LnliVj0GXO3+/CGNJAg1dcN2Fpfw=",
+        version = "v2.0.5",
     )
     go_repository(
         name = "com_github_hashicorp_golang_lru_v2",
@@ -4279,6 +4303,24 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         importpath = "github.com/rcrowley/go-metrics",
         sum = "h1:MkV+77GLUNo5oJ0jf870itWm3D0Sjh7+Za9gazKc5LQ=",
         version = "v0.0.0-20200313005456-10cdbea86bc0",
+    )
+    go_repository(
+        name = "com_github_redis_go_redis_extra_rediscmd_v9",
+        importpath = "github.com/redis/go-redis/extra/rediscmd/v9",
+        sum = "h1:EaDatTxkdHG+U3Bk4EUr+DZ7fOGwTfezUiUJMaIcaho=",
+        version = "v9.0.5",
+    )
+    go_repository(
+        name = "com_github_redis_go_redis_extra_redisotel_v9",
+        importpath = "github.com/redis/go-redis/extra/redisotel/v9",
+        sum = "h1:EfpWLLCyXw8PSM2/XNJLjI3Pb27yVE+gIAfeqp8LUCc=",
+        version = "v9.0.5",
+    )
+    go_repository(
+        name = "com_github_redis_go_redis_v9",
+        importpath = "github.com/redis/go-redis/v9",
+        sum = "h1:137FnGdk+EQdCbye1FW+qOEcY5S+SpY9T0NiuqvtfMY=",
+        version = "v9.1.0",
     )
     go_repository(
         name = "com_github_rivo_uniseg",
@@ -6317,6 +6359,12 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         version = "v1.36.0",
     )
     go_repository(
+        name = "io_opentelemetry_go_contrib_exporters_autoexport",
+        importpath = "go.opentelemetry.io/contrib/exporters/autoexport",
+        sum = "h1:ysCfPZB9AjUlMa1UHYup3c9dAOCMQX/6sxSfPBUoxHw=",
+        version = "v0.46.1",
+    )
+    go_repository(
         name = "io_opentelemetry_go_contrib_instrumentation_google_golang_org_grpc_otelgrpc",
         importpath = "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
         sum = "h1:x7wzEgXfnzJcHDwStJT+mxOz4etr2EcexjqhBvmoakw=",
@@ -6359,6 +6407,12 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         version = "v1.34.0",
     )
     go_repository(
+        name = "io_opentelemetry_go_otel_exporters_otlp_otlpmetric_otlpmetrichttp",
+        importpath = "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp",
+        sum = "h1:bflGWrfYyuulcdxf14V6n9+CoQcu5SAAdHmDPAJnlps=",
+        version = "v0.44.0",
+    )
+    go_repository(
         name = "io_opentelemetry_go_otel_exporters_otlp_otlptrace",
         importpath = "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
         sum = "h1:OeNbIYk/2C15ckl7glBlOBp5+WlYsOElzTNmiPW/x60=",
@@ -6390,6 +6444,12 @@ def install_go_mod_dependencies(workspace_name = "buildbuddy"):
         importpath = "go.opentelemetry.io/otel/exporters/stdout/stdoutmetric",
         sum = "h1:rixTyDGXFxRy1xzhKrotaHy3/KXdPhlWARrCgK+eqUY=",
         version = "v1.36.0",
+    )
+    go_repository(
+        name = "io_opentelemetry_go_otel_exporters_stdout_stdouttrace",
+        importpath = "go.opentelemetry.io/otel/exporters/stdout/stdouttrace",
+        sum = "h1:VhlEQAPp9R1ktYfrPk5SOryw1e9LDDTZCbIPFrho0ec=",
+        version = "v1.21.0",
     )
     go_repository(
         name = "io_opentelemetry_go_otel_metric",
