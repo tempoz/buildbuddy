@@ -1,4 +1,5 @@
 import {
+  Factory,
   BarChart2,
   BookOpen,
   Cloud,
@@ -101,6 +102,10 @@ export default class SidebarComponent extends React.Component<Props, State> {
 
   isCodeSelected() {
     return this.props.path === "/code/";
+  }
+
+  isRegistrySelected() {
+    return this.props.path === "/registry/";
   }
 
   isReviewsSelected() {
@@ -218,6 +223,12 @@ export default class SidebarComponent extends React.Component<Props, State> {
             <SidebarLink selected={this.isCodeSelected()} href={Path.codePath} title="Code">
               <Code className="icon" />
               <span className="sidebar-item-text">Code</span>
+            </SidebarLink>
+          )}
+          {(
+            <SidebarLink selected={this.isRegistrySelected()} href={Path.registryPath} title="Registry">
+              <Factory className="icon" />
+              <span className="sidebar-item-text">Registry</span>
             </SidebarLink>
           )}
           {capabilities.config.codeReviewEnabled && (
