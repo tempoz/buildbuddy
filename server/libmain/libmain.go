@@ -104,6 +104,7 @@ var (
 		"/executors/",
 		"/code/",
 		"/search/",
+		"/registry/",
 		"/audit-logs/",
 		"/repo/",
 		"/reviews/",
@@ -443,7 +444,6 @@ func StartAndRunServices(env *real_environment.RealEnv) {
 
 	// Container registry bullllshiiiiitttttttt
 	mux.Handle("/v2/", registry.New(env))
-	mux.Handle("/registry/", registry.Browser())
 
 	if err := github.Register(env); err != nil {
 		log.Fatalf("%v", err)

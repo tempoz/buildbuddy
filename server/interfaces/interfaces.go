@@ -39,6 +39,7 @@ import (
 	irpb "github.com/buildbuddy-io/buildbuddy/proto/iprules"
 	pepb "github.com/buildbuddy-io/buildbuddy/proto/publish_build_event"
 	qpb "github.com/buildbuddy-io/buildbuddy/proto/quota"
+	regpb "github.com/buildbuddy-io/buildbuddy/proto/registry"
 	repb "github.com/buildbuddy-io/buildbuddy/proto/remote_execution"
 	rppb "github.com/buildbuddy-io/buildbuddy/proto/repo"
 	rspb "github.com/buildbuddy-io/buildbuddy/proto/resource"
@@ -1809,4 +1810,8 @@ type ExperimentFlagDetails interface {
 type ByteStreamServer interface {
 	bspb.ByteStreamServer
 	ReadCASResource(ctx context.Context, rn *digest.CASResourceName, offset, limit int64, stream bspb.ByteStream_ReadServer) error
+}
+
+type CtrRegistryService interface {
+	GetCatalog(ctx context.Context, req *regpb.GetCatalogRequest) (*regpb.GetCatalogResponse, error)
 }

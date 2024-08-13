@@ -82,6 +82,7 @@ var (
 		"UpdateGithubPullRequestComment",
 		"DeleteGithubPullRequestComment",
 		"SendGithubPullRequestReview",
+		"GetCatalog",
 
 		// Audit logs.
 		"GetAuditLogs",

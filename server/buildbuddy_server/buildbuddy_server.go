@@ -66,6 +66,7 @@ import (
 	inpb "github.com/buildbuddy-io/buildbuddy/proto/invocation"
 	irpb "github.com/buildbuddy-io/buildbuddy/proto/iprules"
 	qpb "github.com/buildbuddy-io/buildbuddy/proto/quota"
+	regpb "github.com/buildbuddy-io/buildbuddy/proto/registry"
 	repb "github.com/buildbuddy-io/buildbuddy/proto/repo"
 	rnpb "github.com/buildbuddy-io/buildbuddy/proto/runner"
 	scpb "github.com/buildbuddy-io/buildbuddy/proto/scheduler"
@@ -1778,6 +1779,19 @@ func (s *BuildBuddyServer) Index(ctx context.Context, req *csinpb.IndexRequest) 
 func (s *BuildBuddyServer) RepoStatus(ctx context.Context, req *csinpb.RepoStatusRequest) (*csinpb.RepoStatusResponse, error) {
 	if css := s.env.GetCodesearchService(); css != nil {
 		return css.RepoStatus(ctx, req)
+	}
+	return nil, status.UnimplementedError("Not implemented")
+}
+
+
+func (s *BuildBuddyServer) GetCatalog(ctx context.Context, req *regpb.GetCatalogRequest) (*regpb.GetCatalogResponse, error) {
+	ctx, err := prefix.AttachUserPrefixToContext(ctx, s.env.GetAuthenticator())
+	if err != nil {
+		return nil, err
+	}
+
+	if registry := s.env.GetCtrRegistryService(); registry != nil {
+		return registry.GetCatalog(ctx, req)
 	}
 	return nil, status.UnimplementedError("Not implemented")
 }
