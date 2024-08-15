@@ -47,10 +47,14 @@ var (
 const (
 	// BuildBuddy ubuntu images. When adding images here, also update
 	// the image aliases in enterprise/server/workflow/service/service.go
-	Ubuntu16_04Image = "gcr.io/flame-public/executor-docker-default:enterprise-v1.6.0"
-	Ubuntu20_04Image = "gcr.io/flame-public/rbe-ubuntu20-04@sha256:09261f2019e9baa7482f7742cdee8e9972a3971b08af27363a61816b2968f622"
-	Ubuntu22_04Image = "gcr.io/flame-public/rbe-ubuntu22-04@sha256:0d84a80bb0fc36ba5381942adcf6493249594dcc9044845c617b78c9b621cae3"
-	Ubuntu24_04Image = "gcr.io/flame-public/rbe-ubuntu24-04@sha256:f7db0d4791247f032fdb4451b7c3ba90e567923a341cc6dc43abfc283436791a"
+	// Ubuntu16_04Image = "gcr.io/flame-public/executor-docker-default:enterprise-v1.6.0"
+	Ubuntu16_04Image = "localhost:8080/flame-public/executor-docker-default:enterprise-v1.6.0"
+	// Ubuntu20_04Image = "gcr.io/flame-public/rbe-ubuntu20-04@sha256:09261f2019e9baa7482f7742cdee8e9972a3971b08af27363a61816b2968f622"
+	Ubuntu20_04Image = "localhost:8080/flame-public/rbe-ubuntu20-04:latest"
+	// Ubuntu22_04Image = "gcr.io/flame-public/rbe-ubuntu22-04@sha256:0d84a80bb0fc36ba5381942adcf6493249594dcc9044845c617b78c9b621cae3"
+	Ubuntu22_04Image = "localhost:8080/flame-public/rbe-ubuntu22-04:latest"
+	// Ubuntu24_04Image = "gcr.io/flame-public/rbe-ubuntu24-04@sha256:f7db0d4791247f032fdb4451b7c3ba90e567923a341cc6dc43abfc283436791a"
+	Ubuntu24_04Image = "localhost:8080/flame-public/rbe-ubuntu24-04:latest"
 
 	Ubuntu18_04WorkflowsImage = "gcr.io/flame-public/buildbuddy-ci-runner@sha256:8cf614fc4695789bea8321446402e7d6f84f6be09b8d39ec93caa508fa3e3cfc"
 	Ubuntu20_04WorkflowsImage = "gcr.io/flame-public/rbe-ubuntu20-04-workflows@sha256:ba28945426fcdf4310f18e8a8e3c47af670bdcf9ba76bd76b269898c0579089e"
@@ -160,6 +164,8 @@ const (
 
 	// The app will mint a signed client identity token to workflows.
 	workflowClientIdentityTokenLifetime = 12 * time.Hour
+
+	dockerCheckpointPropertyName = "dockerCheckpoint"
 )
 
 // KnownContainerTypes are all the types that are currently supported, or were
@@ -276,6 +282,9 @@ type Properties struct {
 	// Persistent volumes shared across all actions within a group. Requires
 	// `executor.enable_persistent_volumes` to be enabled.
 	PersistentVolumes []PersistentVolume
+
+	// TODO(iain): comment
+	DockerCheckpoint bool
 }
 
 type PersistentVolume struct {
@@ -461,6 +470,7 @@ func ParseProperties(task *repb.ExecutionTask) (*Properties, error) {
 		DisableMeasuredTaskSize:   boolProp(m, disableMeasuredTaskSizePropertyName, false),
 		DisablePredictedTaskSize:  boolProp(m, disablePredictedTaskSizePropertyName, false),
 		ExtraArgs:                 stringListProp(m, extraArgsPropertyName),
+		DockerCheckpoint:          boolProp(m, dockerCheckpointPropertyName, false),
 		EnvOverrides:              envOverrides,
 		OverrideSnapshotKey:       overrideSnapshotKey,
 		Retry:                     boolProp(m, RetryPropertyName, true),
