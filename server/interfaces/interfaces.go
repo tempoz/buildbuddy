@@ -1814,4 +1814,5 @@ type ByteStreamServer interface {
 
 type CtrRegistryService interface {
 	GetCatalog(ctx context.Context, req *regpb.GetCatalogRequest) (*regpb.GetCatalogResponse, error)
+	GetImage(ctx context.Context, req *regpb.GetImageRequest) (*regpb.Image, error)
 }

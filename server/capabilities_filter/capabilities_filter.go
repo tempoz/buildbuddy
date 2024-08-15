@@ -83,6 +83,7 @@ var (
 		"DeleteGithubPullRequestComment",
 		"SendGithubPullRequestReview",
 		"GetCatalog",
+		"GetImage",
 
 		// Audit logs.
 		"GetAuditLogs",
