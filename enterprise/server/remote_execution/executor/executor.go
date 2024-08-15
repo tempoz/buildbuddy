@@ -2,6 +2,7 @@ package executor
 
 import (
 	"context"
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"os"
@@ -482,6 +483,10 @@ func (s *Executor) ExecuteTaskAndStreamResults(ctx context.Context, st *repb.Sch
 			return finishWithErrFn(status.InternalErrorf("append auxiliary metadata: %s", err))
 		}
 	}
+	md.CheckpointedContainerName = cmdResult.ContainerMetadata
+	md.CheckpointedContainerHref = "http://localhost:8080/registry/?image=" + hex.EncodeToString(
+		[]byte(strings.ReplaceAll(cmdResult.ContainerMetadata, "localhost:8080/", "")))
+	fmt.Println("href is " + md.CheckpointedContainerHref)
 	md.ExecutionCompletedTimestamp = timestamppb.New(s.env.GetClock().Now())
 	md.OutputUploadStartTimestamp = timestamppb.New(s.env.GetClock().Now())
 
