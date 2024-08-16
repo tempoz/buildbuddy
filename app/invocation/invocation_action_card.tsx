@@ -1415,7 +1415,7 @@ export default class InvocationActionCardComponent extends React.Component<Props
                           <div>None</div>
                         )}
                       </div>
-                      {this.state.actionResult.executionMetadata != null &&
+                      {(this.state.actionResult.executionMetadata) &&
                         <div className="action-section">
                           <div className="action-property-title">Checkpointed Container:</div>
                           <TextLink
