@@ -502,6 +502,7 @@ export default class InvocationActionCardComponent extends React.Component<Props
       const workerDurationMillis =
         timestampToDate(metadata.workerCompletedTimestamp).getTime() -
         timestampToDate(metadata.workerStartTimestamp).getTime();
+			// TODO(iain): add a "Checkpointing" stage!
       timingDescription = (
         <div>
           <div>
@@ -1414,7 +1415,7 @@ export default class InvocationActionCardComponent extends React.Component<Props
                           <div>None</div>
                         )}
                       </div>
-                      {this.state.actionResult.executionMetadata !== "" &&
+                      {this.state.actionResult.executionMetadata != null &&
                         <div className="action-section">
                           <div className="action-property-title">Checkpointed Container:</div>
                           <TextLink
