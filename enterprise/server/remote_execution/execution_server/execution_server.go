@@ -834,12 +834,12 @@ func (s *ExecutionServer) execute(req *repb.ExecuteRequest, stream streamLike) e
 			log.CtxWarningf(ctx, "Error dispatching execution for %q: %s", downloadString, err)
 			return err
 		}
-		ctx = log.EnrichContext(ctx, log.ExecutionIDKey, executionID)
+		ctx = log.EnrichContext(context.WithValue(ctx, "eid", executionID), log.ExecutionIDKey, executionID)
 		log.CtxInfof(ctx, "Scheduled execution %q for request %q for invocation %q", executionID, downloadString, invocationID)
 		tracing.AddStringAttributeToCurrentSpan(ctx, "execution_result", "new")
 		tracing.AddStringAttributeToCurrentSpan(ctx, "execution_id", executionID)
 	} else {
-		ctx = log.EnrichContext(ctx, log.ExecutionIDKey, executionID)
+		ctx = log.EnrichContext(context.WithValue(ctx, "eid", executionID), log.ExecutionIDKey, executionID)
 		log.CtxInfof(ctx, "Reusing execution %q for execution request %q for invocation %q", executionID, downloadString, invocationID)
 		tracing.AddStringAttributeToCurrentSpan(ctx, "execution_result", "merged")
 		tracing.AddStringAttributeToCurrentSpan(ctx, "execution_id", executionID)

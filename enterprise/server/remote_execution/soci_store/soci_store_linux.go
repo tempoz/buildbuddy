@@ -139,7 +139,8 @@ index_store_path = "%s"
 		return err
 	}
 	if err := os.WriteFile("/etc/soci-store/config.toml", []byte(sociStoreConf), 0644); err != nil {
-		return status.UnavailableErrorf("could not write soci-store config: %s", err)
+		return nil
+		//return status.UnavailableErrorf("could not write soci-store config: %s", err)
 	}
 	return nil
 }
@@ -227,7 +228,7 @@ func Init(env environment.Env) (Store, error) {
 			if err = sociStore.init(env.GetServerContext()); err != nil {
 				return nil, err
 			}
-			go sociStore.runWithRetries(env.GetServerContext())
+			//go sociStore.runWithRetries(env.GetServerContext())
 
 			if err := sociStore.WaitUntilReady(); err != nil {
 				return nil, status.UnavailableErrorf("soci-store failed to start: %s", err)
