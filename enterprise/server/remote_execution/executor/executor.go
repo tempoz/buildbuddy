@@ -484,8 +484,8 @@ func (s *Executor) ExecuteTaskAndStreamResults(ctx context.Context, st *repb.Sch
 		}
 	}
 	md.CheckpointedContainerName = cmdResult.ContainerMetadata
-	md.CheckpointedContainerHref = "http://localhost:8080/registry/?image=" + hex.EncodeToString(
-		[]byte(strings.ReplaceAll(cmdResult.ContainerMetadata, "localhost:8080/", "")))
+	md.CheckpointedContainerHref = "http://localhost:5001/registry/?image=" + hex.EncodeToString(
+		[]byte(strings.ReplaceAll(cmdResult.ContainerMetadata, "localhost:5001/", "")))
 	fmt.Println("href is " + md.CheckpointedContainerHref)
 	md.ExecutionCompletedTimestamp = timestamppb.New(s.env.GetClock().Now())
 	md.OutputUploadStartTimestamp = timestamppb.New(s.env.GetClock().Now())
