@@ -22,6 +22,8 @@ import (
 	"google.golang.org/grpc/credentials"
 	"gorm.io/gorm"
 
+	registry_handlers "github.com/distribution/distribution/v3/registry/handlers"
+
 	aclpb "github.com/buildbuddy-io/buildbuddy/proto/acl"
 	apipb "github.com/buildbuddy-io/buildbuddy/proto/api/v1"
 	alpb "github.com/buildbuddy-io/buildbuddy/proto/auditlog"
@@ -1826,6 +1828,8 @@ type ContainerRegistry interface {
 }
 
 type ContainerRegistryHandler interface {
+	GetApp() *registry_handlers.App
+
 	SetEnd2Handler(f func(http.ResponseWriter, CREnd2))
 	SetEnd3Handler(f func(http.ResponseWriter, CREnd3))
 	SetEnd4aHandler(f func(http.ResponseWriter, CREnd4a))
